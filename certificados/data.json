@@ -1,0 +1,123 @@
+{
+  "site": {
+    "institution": "Instituto Musical Vale",
+    "cnpj": "31.255.200/0001-19",
+    "city": "São Paulo/SP",
+    "updatedAt": "2026-09-24"
+  },
+  "courses": [
+    {
+      "id": "lei-lucas-2026",
+      "name": "Treinamento Lei Lucas — Primeiros Socorros Escolares, com noções básicas de prevenção e combate a incêndio",
+      "shortName": "Lei Lucas — Primeiros Socorros Escolares",
+      "description": "Capacitação teórica e prática voltada à resposta inicial em emergências escolares, engasgo, RCP/DEA, primeiros socorros e noções de prevenção de incêndio.",
+      "date": "2026-09-28",
+      "time": "14h",
+      "hours": "4 horas",
+      "location": "Escola Musiflex — Pq. Mandaqui",
+      "instructor": "Jonatan do Vale Souza — Bombeiro Civil e Instrutor",
+      "icon": "✚"
+    }
+  ],
+  "students": [
+    {
+      "id": "ll26-001",
+      "name": "Saskia Briansk Santana Ferreira",
+      "courseId": "lei-lucas-2026",
+      "date": "2026-09-28",
+      "time": "14h",
+      "hours": "4 horas",
+      "location": "Escola Musiflex — Pq. Mandaqui",
+      "status": "Concluído",
+      "certificateCode": "IMV-LL-2026-001"
+    },
+    {
+      "id": "ll26-002",
+      "name": "Axl Coelho Melo",
+      "courseId": "lei-lucas-2026",
+      "date": "2026-09-28",
+      "time": "14h",
+      "hours": "4 horas",
+      "location": "Escola Musiflex — Pq. Mandaqui",
+      "status": "Concluído",
+      "certificateCode": "IMV-LL-2026-002"
+    },
+    {
+      "id": "ll26-003",
+      "name": "Fabiana Mescualarello Schitini",
+      "courseId": "lei-lucas-2026",
+      "date": "2026-09-28",
+      "time": "14h",
+      "hours": "4 horas",
+      "location": "Escola Musiflex — Pq. Mandaqui",
+      "status": "Concluído",
+      "certificateCode": "IMV-LL-2026-003"
+    },
+    {
+      "id": "ll26-004",
+      "name": "Clauco Ferreira",
+      "courseId": "lei-lucas-2026",
+      "date": "2026-09-28",
+      "time": "14h",
+      "hours": "4 horas",
+      "location": "Escola Musiflex — Pq. Mandaqui",
+      "status": "Concluído",
+      "certificateCode": "IMV-LL-2026-004"
+    },
+    {
+      "id": "ll26-005",
+      "name": "Juliana Dias Euzebio",
+      "courseId": "lei-lucas-2026",
+      "date": "2026-09-28",
+      "time": "14h",
+      "hours": "4 horas",
+      "location": "Escola Musiflex — Pq. Mandaqui",
+      "status": "Concluído",
+      "certificateCode": "IMV-LL-2026-005"
+    },
+    {
+      "id": "ll26-006",
+      "name": "Ariane Helena Mazur de Souza",
+      "courseId": "lei-lucas-2026",
+      "date": "2026-09-28",
+      "time": "14h",
+      "hours": "4 horas",
+      "location": "Escola Musiflex — Pq. Mandaqui",
+      "status": "Concluído",
+      "certificateCode": "IMV-LL-2026-006"
+    },
+    {
+      "id": "ll26-007",
+      "name": "Julio Henrique Rosa de Moraes",
+      "courseId": "lei-lucas-2026",
+      "date": "2026-09-28",
+      "time": "14h",
+      "hours": "4 horas",
+      "location": "Escola Musiflex — Pq. Mandaqui",
+      "status": "Concluído",
+      "certificateCode": "IMV-LL-2026-007"
+    },
+    {
+      "id": "ll26-008",
+      "name": "Louizi Luiz",
+      "courseId": "lei-lucas-2026",
+      "date": "2026-09-28",
+      "time": "14h",
+      "hours": "4 horas",
+      "location": "Escola Musiflex — Pq. Mandaqui",
+      "status": "Concluído",
+      "certificateCode": "IMV-LL-2026-008"
+    },
+    {
+      "id": "ll26-009",
+      "name": "Giovana Miteistaedt Pasquarelli",
+      "courseId": "lei-lucas-2026",
+      "date": "2026-09-28",
+      "time": "14h",
+      "hours": "4 horas",
+      "location": "Escola Musiflex — Pq. Mandaqui",
+      "status": "Concluído",
+      "certificateCode": "IMV-LL-2026-009"
+    }
+  ]
+}
