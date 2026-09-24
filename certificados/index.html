@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071a33">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Instituto Musical Vale | Registro de Alunos e Certificados</title>
+  <meta name="description" content="Consulta de alunos, cursos e certificados emitidos pelo Instituto Musical Vale.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Instituto Musical Vale">
+      <img id="brandLogo" alt="Logo oficial Instituto Musical Vale">
+      <div>
+        <strong>Instituto Musical Vale</strong>
+        <span>Registro acadêmico e certificados</span>
+      </div>
+    </a>
+    <nav class="top-nav" aria-label="Navegação principal">
+      <a href="#consulta">Consultar</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#referencias">Referências</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="dot"></span> PORTAL DE REGISTROS</span>
+        <h1>Formação registrada.<br><em>Consulta simples e profissional.</em></h1>
+        <p>Consulte alunos, cursos concluídos, datas de realização e códigos de certificado emitidos pelo Instituto Musical Vale. Um portal preparado para receber novos treinamentos e novas turmas.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#consulta">Consultar registros</a>
+          <a class="btn btn-ghost" href="#cursos">Ver cursos publicados</a>
+        </div>
+        <div class="trust-row">
+          <span>✓ Registro por nome</span>
+          <span>✓ Filtros por curso e ano</span>
+          <span>✓ Código de certificado</span>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="pulse-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><path d="M6 33h12l5-14 8 30 7-23 5 7h15" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="mini-label">TREINAMENTO EM DESTAQUE</span>
+        <h2>Lei Lucas — Primeiros Socorros Escolares</h2>
+        <p>com noções básicas de prevenção e combate a incêndio</p>
+        <div class="course-meta">
+          <div><span>Data</span><strong>28/09/2026</strong></div>
+          <div><span>Horário</span><strong>14h</strong></div>
+          <div><span>Carga</span><strong>4 horas</strong></div>
+          <div><span>Local</span><strong>Escola Musiflex — Pq. Mandaqui</strong></div>
+        </div>
+        <div class="instructor">
+          <span>Instrutor responsável</span>
+          <strong>Jonatan do Vale Souza</strong>
+          <small>Bombeiro Civil e Instrutor</small>
+        </div>
+      </aside>
+    </section>
+
+    <section id="consulta" class="registry-section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> CONSULTA PÚBLICA</span>
+          <h2>Alunos e certificados</h2>
+          <p>Digite parte do nome ou use os filtros para localizar um registro.</p>
+        </div>
+        <div id="stats" class="stats"></div>
+      </div>
+
+      <div class="search-panel">
+        <label class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.2-4.2m1.2-5.3a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="searchInput" type="search" placeholder="Buscar por nome ou código do certificado..." autocomplete="off">
+        </label>
+        <select id="courseFilter" aria-label="Filtrar por curso"><option value="">Todos os cursos</option></select>
+        <select id="yearFilter" aria-label="Filtrar por ano"><option value="">Todos os anos</option></select>
+        <button id="clearFilters" class="btn btn-compact" type="button">Limpar</button>
+      </div>
+
+      <div class="privacy-note">
+        <strong>Privacidade:</strong> este portal não exibe RG, CPF, endereço ou outros dados sensíveis.
+        Para publicação pública de nomes, mantenha a base legal e/ou autorização institucional adequada.
+      </div>
+
+      <div id="resultSummary" class="result-summary"></div>
+      <div id="studentGrid" class="student-grid" aria-live="polite"></div>
+      <div id="emptyState" class="empty-state" hidden>
+        <div>⌕</div>
+        <h3>Nenhum registro encontrado</h3>
+        <p>Tente outro nome, código, curso ou ano.</p>
+      </div>
+    </section>
+
+    <section id="cursos" class="courses-section">
+      <div class="section-heading compact">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> CURSOS PUBLICADOS</span>
+          <h2>Histórico de formações</h2>
+        </div>
+      </div>
+      <div id="courseGrid" class="course-grid"></div>
+    </section>
+
+    <section id="referencias" class="references-section">
+      <div class="references-copy">
+        <span class="eyebrow light"><span class="dot"></span> BASES E REFERÊNCIAS</span>
+        <h2>Protocolos e instituições de referência</h2>
+        <p>O conteúdo do treinamento Lei Lucas foi estruturado a partir de legislação aplicável e protocolos reconhecidos de primeiros socorros, suporte básico de vida e prevenção de incêndio.</p>
+        <p class="disclaimer">As referências abaixo indicam fontes técnicas e legais utilizadas no conteúdo. Isso não implica parceria, chancela, credenciamento ou certificação dessas instituições ao Instituto Musical Vale.</p>
+      </div>
+      <div class="reference-badges">
+        <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13722.htm" target="_blank" rel="noopener"><span class="ref-icon">§</span><div><strong>Lei Lucas</strong><small>Lei Federal 13.722/2018</small></div></a>
+        <a href="https://prefeitura.sp.gov.br/web/saude/w/suporte-basico-de-vida" target="_blank" rel="noopener"><span class="ref-icon">192</span><div><strong>SAMU São Paulo</strong><small>Suporte Básico de Vida</small></div></a>
+        <a href="https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines" target="_blank" rel="noopener"><span class="ref-icon">♥</span><div><strong>AHA</strong><small>CPR & ECC Guidelines 2025</small></div></a>
+        <a href="https://cpr.heart.org/en/resuscitation-science/2024-first-aid-guidelines" target="_blank" rel="noopener"><span class="ref-icon">+</span><div><strong>AHA / Red Cross</strong><small>First Aid Guidelines 2024</small></div></a>
+        <a href="https://www.ccb.policiamilitar.sp.gov.br/" target="_blank" rel="noopener"><span class="ref-icon">◈</span><div><strong>CBPMESP</strong><small>Prevenção e brigada de incêndio</small></div></a>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="recordDialog">
+    <button class="dialog-close" id="dialogClose" aria-label="Fechar">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <footer>
+    <div class="footer-brand">
+      <img id="footerLogo" alt="">
+      <div><strong>Instituto Musical Vale</strong><span>CNPJ 31.255.200/0001-19</span></div>
+    </div>
+    <p>Portal de registros acadêmicos • São Paulo/SP</p>
+    <a href="./admin.html">Área de atualização</a>
+  </footer>
+
+  <script src="./logo.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
