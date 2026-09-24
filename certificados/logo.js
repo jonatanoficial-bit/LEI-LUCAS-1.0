@@ -1,0 +1,1 @@
+window.IMV_LOGO = "./logo.webp";
