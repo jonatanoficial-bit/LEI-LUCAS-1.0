@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Atualização de registros | Instituto Musical Vale</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./">
+      <img id="brandLogo" alt="Logo Instituto Musical Vale">
+      <div><strong>Instituto Musical Vale</strong><span>Ferramenta de atualização</span></div>
+    </a>
+    <a class="btn btn-ghost" href="./">← Voltar ao portal</a>
+  </header>
+
+  <main class="admin-shell">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> GESTÃO LOCAL</span>
+        <h2>Adicionar novo aluno</h2>
+        <p>Gere um registro pronto para inserir no arquivo <code>data.json</code>.</p>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <div class="admin-note">
+        <strong>Importante:</strong> esta página não grava dados automaticamente no GitHub.
+        Ela gera o bloco correto para você copiar ou um arquivo JSON atualizado para substituir no repositório.
+      </div>
+
+      <form id="studentForm" class="admin-form">
+        <label class="full">Nome completo<input id="name" required placeholder="Nome completo do aluno"></label>
+        <label>Curso<select id="course"></select></label>
+        <label>Status<select id="status"><option>Concluído</option><option>Em andamento</option></select></label>
+        <label>Data<input id="date" type="date" required></label>
+        <label>Horário<input id="time" placeholder="14h" required></label>
+        <label>Carga horária<input id="hours" placeholder="4 horas" required></label>
+        <label>Local<input id="location" placeholder="Local de realização" required></label>
+        <label>Código do certificado<input id="code" placeholder="IMV-CURSO-2026-010" required></label>
+        <div class="full admin-actions">
+          <button class="btn btn-primary" type="submit">Gerar registro</button>
+          <button class="btn btn-ghost" id="downloadJson" type="button">Baixar data.json atualizado</button>
+          <button class="btn btn-ghost" id="copyRecord" type="button">Copiar registro</button>
+        </div>
+      </form>
+
+      <pre id="output" class="code-box">Preencha o formulário para gerar o registro.</pre>
+    </div>
+  </main>
+
+  <script src="./logo.js"></script>
+  <script>
+  (() => {
+    const $ = (id) => document.getElementById(id);
+    if(window.IMV_LOGO) $("brandLogo").src = window.IMV_LOGO;
+
+    let data = null;
+    let generated = null;
+
+    async function init(){
+      data = await (await fetch("./data.json",{cache:"no-store"})).json();
+      data.courses.forEach((c) => {
+        const o = document.createElement("option");
+        o.value = c.id;
+        o.textContent = c.shortName || c.name;
+        $("course").appendChild(o);
+      });
+      const c = data.courses[0];
+      if(c){
+        $("date").value = c.date;
+        $("time").value = c.time;
+        $("hours").value = c.hours;
+        $("location").value = c.location;
+      }
+      $("code").value = nextCode();
+    }
+
+    function nextCode(){
+      if(!data) return "IMV-LL-2026-010";
+      const nums = data.students.map((s) => {
+        const match = s.certificateCode.match(/(\d+)$/);
+        return match ? parseInt(match[1],10) : 0;
+      });
+      const n = Math.max(0,...nums) + 1;
+      return "IMV-LL-2026-" + String(n).padStart(3,"0");
+    }
+
+    $("studentForm").addEventListener("submit",(e) => {
+      e.preventDefault();
+      generated = {
+        id: "rec-" + Date.now(),
+        name: $("name").value.trim(),
+        courseId: $("course").value,
+        date: $("date").value,
+        time: $("time").value.trim(),
+        hours: $("hours").value.trim(),
+        location: $("location").value.trim(),
+        status: $("status").value,
+        certificateCode: $("code").value.trim()
+      };
+      $("output").textContent = JSON.stringify(generated,null,2);
+    });
+
+    $("copyRecord").addEventListener("click",async() => {
+      if(!generated){ alert("Gere um registro primeiro."); return; }
+      await navigator.clipboard.writeText(JSON.stringify(generated,null,2));
+      alert("Registro copiado.");
+    });
+
+    $("downloadJson").addEventListener("click",() => {
+      if(!generated){ alert("Gere um registro primeiro."); return; }
+      const updated = JSON.parse(JSON.stringify(data));
+      updated.students.push(generated);
+      updated.site.updatedAt = new Date().toISOString().slice(0,10);
+      const blob = new Blob([JSON.stringify(updated,null,2)],{type:"application/json"});
+      const a = document.createElement("a");
+      const url = URL.createObjectURL(blob);
+      a.href = url;
+      a.download = "data.json";
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(url),500);
+    });
+
+    init();
+  })();
+  </script>
+</body>
+</html>
